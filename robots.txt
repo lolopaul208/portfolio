@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://paul-lolo.netlify.app/sitemap.xml

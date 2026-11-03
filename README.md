@@ -10,7 +10,7 @@ paul-lolo-portfolio/
 ├── 404.html              ← "page not found"
 ├── css/style.css         ← all styling (colours at the top, in :root)
 ├── js/
-│   ├── data.js           ← ✏️ CONTENT: projects, dashboards, experience  (edit this one most often)
+│   ├── data.js           ← ✏️ CONTENT: projects, dashboards, marketing ops, experience  (edit this one most often)
 │   ├── charts.js         ← built-in dashboard demos (fictitious data)
 │   └── main.js           ← behaviour: menu, terminal, cards, dialog, filters
 ├── assets/
@@ -70,6 +70,9 @@ Copy a block in `projects: [ … ]` and change the fields:
   accent: "cyan"                     // cyan | blue | violet (card colour)
 },
 ```
+
+### Edit the Marketing Ops section
+Cards live in `marketingOps: [ … ]` in `js/data.js` (title, text, tasks, tools, optional `usedOn` for the projects where the skill was applied). Icons available: `search`, `ads`, `console`, `plausible`, `tracking`, `crm`. The 4-step workflow (Audit → Track → Optimize → Report) is in `index.html` under `id="marketing-ops"`.
 
 ### Add an experience
 Add a block at the top of `experience: [ … ]` (most recent first). `current: true` highlights the dot in the timeline.

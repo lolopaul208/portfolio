@@ -436,3 +436,27 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .tl-side { border-right: 0; padding-right: 0; flex-direction: row; align-items: center; }
   .tl-main .tl-missions { columns: 1; }
 }
+
+/* ---- Marketing Ops ---- */
+.workflow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-bottom: 32px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); counter-reset: none; }
+.workflow li { padding: 22px 24px; display: flex; flex-direction: column; gap: 4px; position: relative; }
+.workflow li + li { border-left: 1px solid var(--border); }
+.workflow li:not(:last-child)::after { content: "→"; position: absolute; right: -9px; top: 22px; z-index: 1; color: var(--cyan); background: var(--surface); font-size: .9rem; line-height: 1; padding: 2px 0; }
+.wf-n { font-family: var(--font-mono); font-size: .75rem; color: var(--cyan); }
+.workflow strong { font-family: var(--font-display); font-size: 1.1rem; }
+.workflow li span:last-child { color: var(--text-2); font-size: .9rem; }
+.mops-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.mops-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; transition: transform .25s, border-color .25s, box-shadow .25s; }
+.mops-card:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: 0 18px 40px -20px rgba(34,211,238,.25); }
+.mops-top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.mops-top .skill-icon { margin: 0; flex-shrink: 0; }
+.mops-top h3 { margin: 0; font-size: 1.12rem; }
+.mops-text { color: var(--text-2); font-size: .93rem; }
+.mops-card .detail-list li { font-size: .9rem; margin-bottom: 5px; }
+.mops-foot { margin-top: auto; padding-top: 14px; }
+.mops-card .chips li { font-size: .75rem; padding: 4px 9px; color: #93c5fd; }
+.mops-used { margin: 12px 0 0; font-size: .82rem; color: var(--text-3); }
+.mops-used strong { color: var(--cyan); font-weight: 600; }
+@media (max-width: 1100px) { .nav-links a { padding: 8px 10px; font-size: .9rem; } }
+@media (max-width: 960px) { .mops-grid { grid-template-columns: 1fr 1fr; } .workflow { grid-template-columns: 1fr 1fr; } .workflow li:nth-child(3) { border-left: 0; } .workflow li:nth-child(n+3) { border-top: 1px solid var(--border); } .workflow li::after { display: none; } }
+@media (max-width: 640px) { .mops-grid, .workflow { grid-template-columns: 1fr; } .workflow li + li { border-left: 0; border-top: 1px solid var(--border); } }

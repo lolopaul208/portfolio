@@ -58,7 +58,7 @@ window.PORTFOLIO = {
         "Indicators kept simple for non-specialist users"
       ],
       skills: ["Data Analytics", "Business Intelligence", "Data Management", "Product Design", "Digital Transformation"],
-      links: [{ label: "View on GitHub", url: "https://github.com/lolopaul208/DataBridge/" }],
+      links: [{ label: "Visit website", url: "https://akonta.netlify.app/" }],
       accent: "violet"
     }
   ],
@@ -112,6 +112,57 @@ window.PORTFOLIO = {
         "Watch the visit → lead step of the funnel; it is usually where landing-page work pays off fastest.",
         "Segment leads by profile to tailor CRM follow-up sequences."
       ]
+    }
+  ],
+
+  /* ------------------------------------------------- MARKETING OPERATIONS
+     Cards shown in the "Marketing Ops" section (below the Dashboards gallery).
+     icon: search | ads | console | plausible | tracking | crm
+     usedOn: optional list of project names where this was applied        */
+  marketingOps: [
+    {
+      icon: "search",
+      title: "SEO Optimization",
+      text: "Technical, on-page and local SEO: making sure pages are crawlable, well structured and match what people actually search for.",
+      tasks: ["Keyword research & search intent", "On-page: titles, meta, headings, internal links", "Technical audit: indexing, speed, sitemap, structured data", "Local SEO & Google Business Profile"],
+      tools: ["Google Search Console", "PageSpeed Insights", "Schema.org"],
+      usedOn: ["Le Pont Étudiant"]
+    },
+    {
+      icon: "ads",
+      title: "SEA — Paid Search",
+      text: "Structuring paid search campaigns so every euro can be traced back to a lead or a conversion.",
+      tasks: ["Campaign & ad-group structure", "Keyword selection and negative keywords", "Ad copy and landing-page alignment", "Conversion tracking and cost-per-lead follow-up"],
+      tools: ["Google Ads", "Keyword Planner"]
+    },
+    {
+      icon: "console",
+      title: "Google Search Analytics",
+      text: "Reading search performance data to find quick wins: pages that rank but don't get clicked, queries that deserve their own content.",
+      tasks: ["Clicks, impressions, CTR and average position", "Query & page analysis to spot opportunities", "Indexing and coverage monitoring", "SEO reporting for stakeholders"],
+      tools: ["Google Search Console", "Google Analytics 4", "Looker Studio"]
+    },
+    {
+      icon: "plausible",
+      title: "Privacy-friendly Web Analytics",
+      text: "Cookie-less audience measurement that stays GDPR-compliant while still answering the key questions: where visitors come from and what they do.",
+      tasks: ["Traffic sources & referrers", "Goals and custom events", "Top pages and entry points", "Lightweight dashboards for the team"],
+      tools: ["Plausible Analytics"],
+      usedOn: ["Le Pont Étudiant"]
+    },
+    {
+      icon: "tracking",
+      title: "Tracking & Attribution",
+      text: "Clean campaign tagging and event tracking, so acquisition channels can be compared on the same basis.",
+      tasks: ["UTM naming conventions", "Event & conversion tracking plan", "Tag management", "Channel attribution reporting"],
+      tools: ["UTM", "Google Tag Manager", "GA4"]
+    },
+    {
+      icon: "crm",
+      title: "CRM & Conversion Optimization",
+      text: "Turning visitors into qualified leads, then into customers — and using data to personalise each step.",
+      tasks: ["Funnel analysis (visit → lead → customer)", "Landing-page and form optimisation", "Segmentation and lead scoring", "CRM data quality and enrichment"],
+      tools: ["CRM", "SQL", "Power BI"]
     }
   ],
 

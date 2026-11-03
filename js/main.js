@@ -162,6 +162,32 @@
     });
   });
 
+  /* --------------------------------------------------------- marketing ops */
+  var ICONS = {
+    search: '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2M8.5 11h5M11 8.5v5"/>',
+    ads: '<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M7 13l2.2-5 2.3 5M7.8 11.5h2.9M15 8v5h1.5a2.5 2.5 0 0 0 0-5z"/><path d="M9 21h6"/>',
+    console: '<path d="M3 20h18"/><path d="M5 16l4-5 3 3 6-8"/><circle cx="18" cy="6" r="1.5"/>',
+    plausible: '<path d="M4 18c3-1 4-9 8-9s4 6 8 3"/><path d="M4 21h16M4 3v18"/>',
+    tracking: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>',
+    crm: '<path d="M3 5h18l-7 8v6l-4 2v-8z"/>'
+  };
+  var mg = $("#mops-grid");
+  if (mg && D.marketingOps) {
+    D.marketingOps.forEach(function (m) {
+      var c = document.createElement("article");
+      c.className = "mops-card reveal";
+      c.innerHTML =
+        '<div class="mops-top"><div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24">' + (ICONS[m.icon] || ICONS.search) + "</svg></div>" +
+        "<h3>" + esc(m.title) + "</h3></div>" +
+        '<p class="mops-text">' + esc(m.text) + "</p>" +
+        '<ul class="detail-list">' + m.tasks.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>" +
+        '<div class="mops-foot"><ul class="chips">' + m.tools.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>" +
+        (m.usedOn && m.usedOn.length ? '<p class="mops-used">Applied on: <strong>' + m.usedOn.map(esc).join(", ") + "</strong></p>" : "") +
+        "</div>";
+      mg.appendChild(c);
+    });
+  }
+
   /* ----------------------------------------------------------- experience */
   var tl = $("#timeline");
   D.experience.forEach(function (x) {

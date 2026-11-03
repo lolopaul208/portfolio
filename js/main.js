@@ -169,7 +169,9 @@
     console: '<path d="M3 20h18"/><path d="M5 16l4-5 3 3 6-8"/><circle cx="18" cy="6" r="1.5"/>',
     plausible: '<path d="M4 18c3-1 4-9 8-9s4 6 8 3"/><path d="M4 21h16M4 3v18"/>',
     tracking: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>',
-    crm: '<path d="M3 5h18l-7 8v6l-4 2v-8z"/>'
+    crm: '<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',
+    shop: '<path d="M4 7h16l-1.5 11a2 2 0 0 1-2 1.8h-9a2 2 0 0 1-2-1.8z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/>',
+    ux: '<circle cx="9" cy="9" r="5"/><path d="M13 13l3 3"/><path d="M15 19l2 2 4-4"/>'
   };
   var mg = $("#mops-grid");
   if (mg && D.marketingOps) {

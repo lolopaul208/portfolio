@@ -460,3 +460,24 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 1100px) { .nav-links a { padding: 8px 10px; font-size: .9rem; } }
 @media (max-width: 960px) { .mops-grid { grid-template-columns: 1fr 1fr; } .workflow { grid-template-columns: 1fr 1fr; } .workflow li:nth-child(3) { border-left: 0; } .workflow li:nth-child(n+3) { border-top: 1px solid var(--border); } .workflow li::after { display: none; } }
 @media (max-width: 640px) { .mops-grid, .workflow { grid-template-columns: 1fr; } .workflow li + li { border-left: 0; border-top: 1px solid var(--border); } }
+
+/* ---- v3: photo, workflow labels, 4-col ops grid ---- */
+.hero h1 { font-size: clamp(2.8rem, 6.4vw, 4.8rem); }
+.hero-id { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.hero-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid transparent; background: var(--grad) border-box; box-shadow: 0 0 0 3px var(--bg) inset; }
+.about-photo { margin: 32px 0 0; max-width: 320px; }
+.about-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 20px; border: 1px solid var(--border-strong); box-shadow: 0 30px 70px -30px rgba(59,130,246,.55); filter: saturate(.95) contrast(1.03); }
+.about-photo figcaption { margin-top: 14px; display: flex; flex-direction: column; }
+.about-photo figcaption strong { font-family: var(--font-display); font-size: 1.05rem; }
+.about-photo figcaption span { color: var(--text-3); font-size: .85rem; }
+.workflow .wf-head { margin: 0; display: flex; align-items: baseline; gap: 8px; }
+.workflow .wf-n { font-size: .9rem; }
+.workflow .wf-desc { color: var(--text-2); font-size: .9rem; }
+.mops-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.mops-card { padding: 22px; }
+.mops-top h3 { font-size: 1.02rem; }
+@media (max-width: 1180px) { .mops-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 860px) { .about-photo { max-width: 240px; margin-top: 24px; } }
+@media (max-width: 640px) { .mops-grid { grid-template-columns: 1fr; } }
+.about-photo { max-width: 260px; }
+.about-photo img { height: auto; }

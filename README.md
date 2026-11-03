@@ -1,4 +1,4 @@
-# Paul LOLO — Portfolio (Data · Marketing Ops · BI)
+# Atsou Paul LOLO — Portfolio (Data · Marketing Ops · BI)
 
 Static site in plain HTML / CSS / JavaScript. No framework, no build step, no backend — it can be deployed on Netlify as is.
 

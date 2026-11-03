@@ -144,10 +144,10 @@ window.PORTFOLIO = {
     },
     {
       icon: "plausible",
-      title: "Privacy-friendly Web Analytics",
-      text: "Cookie-less audience measurement that stays GDPR-compliant while still answering the key questions: where visitors come from and what they do.",
-      tasks: ["Traffic sources & referrers", "Goals and custom events", "Top pages and entry points", "Lightweight dashboards for the team"],
-      tools: ["Plausible Analytics"],
+      title: "Web Analytics",
+      text: "Measuring where visitors come from and what they do — with Google Analytics, or cookie-less and GDPR-friendly with Plausible.",
+      tasks: ["Traffic sources & referrers", "Goals, conversions and custom events", "Top pages and entry points", "Audience dashboards for the team"],
+      tools: ["Google Analytics 4", "Plausible Analytics"],
       usedOn: ["Le Pont Étudiant"]
     },
     {
@@ -163,6 +163,20 @@ window.PORTFOLIO = {
       text: "Turning visitors into qualified leads, then into customers — and using data to personalise each step.",
       tasks: ["Funnel analysis (visit → lead → customer)", "Landing-page and form optimisation", "Segmentation and lead scoring", "CRM data quality and enrichment"],
       tools: ["CRM", "SQL", "Power BI"]
+    },
+    {
+      icon: "shop",
+      title: "E-commerce Platforms",
+      text: "Running the marketing side of online shops: product pages, catalogue data and the sales funnel from visit to order.",
+      tasks: ["Product page and catalogue optimisation", "E-commerce tracking (orders, basket, revenue)", "Checkout funnel analysis", "Promotions and campaign follow-up"],
+      tools: ["Shopify", "PrestaShop", "Google Analytics 4"]
+    },
+    {
+      icon: "ux",
+      title: "UX Research & Testing",
+      text: "Understanding users before changing a page, then testing changes instead of guessing.",
+      tasks: ["User interviews and journey mapping", "Usability reviews of key pages", "A/A tests to validate the testing setup", "A/B tests on pages, forms and messages"],
+      tools: ["UX Research", "A/A Testing", "A/B Testing"]
     }
   ],
 

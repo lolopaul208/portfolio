@@ -1,5 +1,5 @@
 /* =========================================================================
-   Built-in dashboard demos — lightweight SVG charts, no library.
+   Built-in dashboard demos, lightweight SVG charts, no library.
    ALL FIGURES BELOW ARE FICTITIOUS and only illustrate dashboard design.
    ========================================================================= */
 (function () {

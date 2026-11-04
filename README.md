@@ -1,6 +1,6 @@
-# Atsou Paul LOLO — Portfolio (Data · Marketing Ops · BI)
+# Atsou Paul LOLO: Portfolio (Data · Marketing Ops · BI)
 
-Static site in plain HTML / CSS / JavaScript. No framework, no build step, no backend — it can be deployed on Netlify as is.
+Static site in plain HTML / CSS / JavaScript. No framework, no build step, no backend: it can be deployed on Netlify as is.
 
 ## File structure
 
@@ -33,7 +33,7 @@ python3 -m http.server 8000     # then open http://localhost:8000
 
 ## Deploy on Netlify
 
-**Option A — drag & drop (fastest, no account setup beyond sign-up)**
+**Option A: drag & drop (fastest, no account setup beyond sign-up)**
 1. Log in at https://app.netlify.com
 2. *Sites → Add new site → Deploy manually*.
 3. Drag the whole `paul-lolo-portfolio` folder (not the .zip) into the drop zone.
@@ -41,13 +41,13 @@ python3 -m http.server 8000     # then open http://localhost:8000
 
 To update later: *Deploys* tab → drag the folder again.
 
-**Option B — via GitHub (recommended for frequent updates)**
+**Option B: via GitHub (recommended for frequent updates)**
 1. Push the folder to a GitHub repository (e.g. `lolopaul208/portfolio`).
 2. Netlify: *Add new site → Import an existing project → GitHub* → choose the repo.
-3. Build command: *(leave empty)* — Publish directory: `.`
+3. Build command: *(leave empty)*; Publish directory: `.`
 4. Every `git push` redeploys automatically.
 
-**After the first deploy — update the site URL.** The SEO/Open Graph tags assume `https://paul-lolo.netlify.app/`. If the final address differs (or you add a custom domain), replace that URL in:
+**After the first deploy: update the site URL.** The SEO/Open Graph tags assume `https://paul-lolo.netlify.app/`. If the final address differs (or you add a custom domain), replace that URL in:
 - `index.html` (`canonical`, `og:url`, `og:image`, `twitter:image`, JSON-LD `url`)
 - `robots.txt` and `sitemap.xml`
 
@@ -84,7 +84,7 @@ Edit directly in `index.html` (search for the section, e.g. `id="about"`).
 
 Each dashboard is a block in `dashboards: [ … ]` in `js/data.js`.
 
-1. **Export the screenshot** from Power BI / Tableau (PNG or JPG, ideally 1600×1000 px, under ~400 KB — compress on https://squoosh.app if needed).
+1. **Export the screenshot** from Power BI / Tableau (PNG or JPG, ideally 1600×1000 px, under ~400 KB; compress on https://squoosh.app if needed).
 2. **Check confidentiality** (see below), then save it in `assets/dashboards/`, e.g. `assets/dashboards/crm-churn.png`. Use lowercase names without spaces.
 3. **Add a block** in `js/data.js`:
 ```js
@@ -92,7 +92,7 @@ Each dashboard is a block in `dashboards: [ … ]` in `js/data.js`.
   id: "pbi-crm-churn",
   title: "CRM Churn Analysis",
   tool: "Power BI",                               // "Power BI", "Tableau" or "Python" (used by the filter buttons)
-  dataStatus: "Anonymized data",                  // see list below — always fill this in
+  dataStatus: "Anonymized data",                  // see list below; always fill this in
   demo: null,
   image: "assets/dashboards/crm-churn.png",       // screenshot shown on the card
   githubUrl: null,                                // e.g. "https://github.com/lolopaul208/my-analysis"
@@ -109,7 +109,7 @@ Each dashboard is a block in `dashboards: [ … ]` in `js/data.js`.
 
 - A card shows the **screenshot** if `image` is set, otherwise the **built-in demo** (`demo: "sales"` or `"marketing"`), otherwise a "Preview coming soon" placeholder.
 - **Tableau Public embed:** on Tableau Public, *Share → Embed code*, take the URL in the `src`/`name` attribute and add `?:showVizHome=no&:embed=true`, put it in `embedUrl`.
-- **Power BI:** only *Publish to web* links are publicly viewable — never publish a report containing company data that way.
+- **Power BI:** only *Publish to web* links are publicly viewable; never publish a report containing company data that way.
 
 ### Confidentiality rules (`dataStatus`)
 Use exactly one of:
@@ -128,7 +128,7 @@ Before publishing a screenshot of work done for an employer or client (Danone, K
 ## Changing colours / fonts
 At the top of `css/style.css`, the `:root` block holds every colour (`--blue`, `--cyan`, `--bg`…) and the three fonts (Space Grotesk, Inter, JetBrains Mono, loaded from Google Fonts in `index.html`).
 
-## Before going live — checklist
+## Before going live: checklist
 - [ ] Re-read all texts (About, project descriptions, experience titles) and adjust wording
 - [ ] Confirm the site URL and update SEO tags (see Deploy section)
 - [ ] Test every external link (projects, LinkedIn, email)

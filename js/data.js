@@ -1,5 +1,5 @@
 /* =========================================================================
-   PORTFOLIO CONTENT — edit this file to update the site.
+   PORTFOLIO CONTENT: edit this file to update the site.
    Everything visible in Projects, Dashboards and Experience comes from here.
    See README.md for step-by-step instructions.
    ========================================================================= */
@@ -8,7 +8,7 @@ window.PORTFOLIO = {
 
   /* ---------------------------------------------------------------- PROJECTS
      type: "Entrepreneurial project" | "Personal project" | "Academic project"
-     links: [{ label, url }]  — external links open in a new tab            */
+     links: [{ label, url }] , external links open in a new tab            */
   projects: [
     {
       id: "le-pont-etudiant",
@@ -16,7 +16,7 @@ window.PORTFOLIO = {
       type: "Entrepreneurial project",
       tagline: "Digital platform for French-speaking African students",
       description:
-        "A digital platform supporting French-speaking African students who want to pursue higher education in France — from orientation to the application journey.",
+        "A digital platform supporting French-speaking African students who want to pursue higher education in France, from orientation to the application journey.",
       focus: [
         "Digital project management of the platform",
         "SEO and acquisition strategy to reach prospective students",
@@ -46,7 +46,7 @@ window.PORTFOLIO = {
     },
     {
       id: "akonta-databridge",
-      name: "Akonta — DataBridge",
+      name: "Akonta (DataBridge)",
       type: "Personal project",
       tagline: "Simple business analytics for small African retailers",
       description:
@@ -74,7 +74,7 @@ window.PORTFOLIO = {
   dashboards: [
     {
       id: "zomato-delhi-ratings",
-      title: "What Drives a Restaurant's Rating? — Zomato, Delhi NCR",
+      title: "What Drives a Restaurant's Rating? Zomato, Delhi NCR",
       tool: "Python",
       dataStatus: "Public data (Kaggle)",
       demo: "zomato",
@@ -84,12 +84,12 @@ window.PORTFOLIO = {
       powerBiUrl: null,
       embedUrl: null,
       problem:
-        "For a restaurant owner, an investor or Zomato's sales team: which factors — price, cuisine, location, online delivery, table booking — go with a better rating and more visibility?",
+        "For a restaurant owner, an investor or Zomato's sales team: which factors (price, cuisine, location, online delivery, table booking) go with a better rating and more visibility?",
       data:
-        "Kaggle Zomato Restaurant Dataset (9,551 restaurants, 15 countries). Scope: Delhi NCR, 7,947 restaurants, 5,808 rated. Cleaned in Python: a rating of 0 means 'not rated' (< 4 votes) and was set to missing — keeping it would drag the average from 3.28 to 2.40.",
+        "Kaggle Zomato Restaurant Dataset (9,551 restaurants, 15 countries). Scope: Delhi NCR, 7,947 restaurants, 5,808 rated. Cleaned in Python: a rating of 0 means 'not rated' (< 4 votes) and was set to missing, keeping it would drag the average from 3.28 to 2.40.",
       kpis: ["Average rating & share rated 4+", "Share of restaurants with no rating", "Rating by price range", "Online delivery & table booking at equal price", "Price-adjusted rating by cuisine", "Best and worst localities"],
       insights: [
-        "Rating rises with price: 3.18 for budget restaurants vs 3.65 for fine dining — compare restaurants within a price range.",
+        "Rating rises with price: 3.18 for budget restaurants vs 3.65 for fine dining. Compare restaurants within a price range.",
         "40% of budget restaurants have no rating; 36% of restaurants without online delivery vs 4% with it. For small restaurants, delivery is first a visibility lever.",
         "Table booking seems to add +0.28 point, but the gap disappears within each price range: a confounding effect of price.",
         "Asian, Mexican, Mediterranean cuisines, cafés and desserts beat their price range; North Indian, Chinese and pizza lag behind."
@@ -113,7 +113,7 @@ window.PORTFOLIO = {
       insights: [
         "Track AOV next to order count: revenue growth driven only by volume can hide shrinking baskets.",
         "Compare each month to its target rather than to the previous month to account for seasonality.",
-        "Drill into the weakest category first — that's where a commercial action has the most leverage."
+        "Drill into the weakest category first: that's where a commercial action has the most leverage."
       ]
     },
     {
@@ -154,7 +154,7 @@ window.PORTFOLIO = {
     },
     {
       icon: "ads",
-      title: "SEA — Paid Search",
+      title: "SEA (Paid Search)",
       text: "Structuring paid search campaigns so every euro can be traced back to a lead or a conversion.",
       tasks: ["Campaign & ad-group structure", "Keyword selection and negative keywords", "Ad copy and landing-page alignment", "Conversion tracking and cost-per-lead follow-up"],
       tools: ["Google Ads", "Keyword Planner"]
@@ -169,7 +169,7 @@ window.PORTFOLIO = {
     {
       icon: "plausible",
       title: "Web Analytics",
-      text: "Measuring where visitors come from and what they do — with Google Analytics, or cookie-less and GDPR-friendly with Plausible.",
+      text: "Measuring where visitors come from and what they do, with Google Analytics, or cookie-less and GDPR-friendly with Plausible.",
       tasks: ["Traffic sources & referrers", "Goals, conversions and custom events", "Top pages and entry points", "Audience dashboards for the team"],
       tools: ["Google Analytics 4", "Plausible Analytics"],
       usedOn: ["Le Pont Étudiant"]
@@ -184,7 +184,7 @@ window.PORTFOLIO = {
     {
       icon: "crm",
       title: "CRM & Conversion Optimization",
-      text: "Turning visitors into qualified leads, then into customers — and using data to personalise each step.",
+      text: "Turning visitors into qualified leads, then into customers, using data to personalise each step.",
       tasks: ["Funnel analysis (visit → lead → customer)", "Landing-page and form optimisation", "Segmentation and lead scoring", "CRM data quality and enrichment"],
       tools: ["CRM", "SQL", "Power BI"]
     },

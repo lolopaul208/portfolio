@@ -61,7 +61,7 @@
     ['<span class="k">WHERE</span>  created_at >= <span class="s">\'2026-01-01\'</span>\n', "", false],
     ['<span class="k">GROUP BY</span> channel <span class="k">ORDER BY</span> cr <span class="k">DESC</span>;\n\n', "", false],
     ['<span class="o"> channel   | leads | cr\n-----------+-------+-----\n email     |   ··· | ···\n organic   |   ··· | ···\n</span>', "", false],
-    ['<span class="c">(sample query — illustrative)</span>\n\n', "", false],
+    ['<span class="c">(sample query, illustrative)</span>\n\n', "", false],
     ['<span class="p">paul@data</span>:<span class="f">~</span>$ ', "echo $MISSION\n", true],
     ['<span class="s">Turning Data into Business Impact.</span>\n', "", false]
   ];

@@ -116,7 +116,7 @@
   });
 
   /* ----------------------------------------------------------- dashboards */
-  var toolClass = function (t) { return t === "Tableau" ? "tableau" : t === "Power BI" ? "powerbi" : ""; };
+  var toolClass = function (t) { return t === "Tableau" ? "tableau" : t === "Power BI" ? "powerbi" : t === "Python" ? "python" : ""; };
 
   function preview(d, container) {
     if (d.image) {
@@ -130,6 +130,7 @@
   }
   function dashLinks(d, cls) {
     var out = "";
+    if (d.githubUrl) out += '<a class="btn btn-ghost ' + cls + '" href="' + esc(d.githubUrl) + '" target="_blank" rel="noopener">Code &amp; notebook ' + EXT + NEWTAB + "</a>";
     if (d.tableauPublicUrl) out += '<a class="btn btn-ghost ' + cls + '" href="' + esc(d.tableauPublicUrl) + '" target="_blank" rel="noopener">Tableau Public ' + EXT + NEWTAB + "</a>";
     if (d.powerBiUrl) out += '<a class="btn btn-ghost ' + cls + '" href="' + esc(d.powerBiUrl) + '" target="_blank" rel="noopener">Power BI Service ' + EXT + NEWTAB + "</a>";
     return out;
@@ -143,7 +144,7 @@
     card.innerHTML =
       '<div class="dash-preview"></div>' +
       '<div class="dash-body">' +
-        '<div class="dash-badges"><span class="badge badge-tool ' + toolClass(d.tool) + '">' + esc(d.tool) + '</span><span class="badge badge-data">' + esc(d.dataStatus) + "</span></div>" +
+        '<div class="dash-badges"><span class="badge badge-tool ' + toolClass(d.tool) + '">' + esc(d.tool) + '</span><span class="badge badge-data' + (/^Public|^Real/.test(d.dataStatus) ? " badge-data-real" : "") + '">' + esc(d.dataStatus) + "</span></div>" +
         "<h3>" + esc(d.title) + "</h3>" +
         '<p class="problem">' + esc(d.problem) + "</p>" +
         '<div class="dash-actions"><button class="btn btn-primary btn-sm" data-dash="' + esc(d.id) + '" aria-haspopup="dialog">Case study</button>' + dashLinks(d, "btn-sm") + "</div>" +
@@ -237,7 +238,7 @@
 
   function openDashboard(d) {
     mc.innerHTML =
-      '<div class="dash-badges"><span class="badge badge-tool ' + toolClass(d.tool) + '">' + esc(d.tool) + '</span><span class="badge badge-data">' + esc(d.dataStatus) + "</span></div>" +
+      '<div class="dash-badges"><span class="badge badge-tool ' + toolClass(d.tool) + '">' + esc(d.tool) + '</span><span class="badge badge-data' + (/^Public|^Real/.test(d.dataStatus) ? " badge-data-real" : "") + '">' + esc(d.dataStatus) + "</span></div>" +
       '<h3 id="modal-title">' + esc(d.title) + "</h3>" +
       '<div class="dash-preview" id="modal-preview"></div>' +
       '<div class="detail-grid">' +

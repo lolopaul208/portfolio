@@ -481,3 +481,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 640px) { .mops-grid { grid-template-columns: 1fr; } }
 .about-photo { max-width: 260px; }
 .about-photo img { height: auto; }
+.badge-tool.python { color: #86efac; background: rgba(52,211,153,.08); border-color: rgba(52,211,153,.3); }
+.mini-dash .md-flag-real { color: var(--green); border-color: rgba(52,211,153,.5); }
+.md-row-even { grid-template-columns: 1fr 1fr; }
+@media (max-width: 520px) { .md-row-even { grid-template-columns: 1fr; } }
+.badge-data-real { color: var(--green); background: rgba(52,211,153,.08); border-color: rgba(52,211,153,.45); }

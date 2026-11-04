@@ -204,7 +204,37 @@
     }, tip);
   }
 
-  window.DashboardDemos = { sales: salesDemo, marketing: marketingDemo };
+  /* ============================================ ZOMATO (real public data, Kaggle) */
+  function kpiPlain(label, value, note) {
+    return '<div class="kpi"><div class="kpi-label">' + label + '</div><div class="kpi-value">' + value +
+      '</div><div class="kpi-delta muted">' + note + "</div></div>";
+  }
+  function zomatoDemo(root) {
+    // Source: analysis.ipynb in github.com/lolopaul208/zomato-Note-restaurant- (Delhi NCR)
+    root.innerHTML =
+      '<div class="md-head"><span class="md-title">Zomato restaurants · Delhi NCR</span><span class="md-flag md-flag-real">PUBLIC DATA · KAGGLE</span></div>' +
+      '<div class="kpis">' +
+        kpiPlain("Restaurants", "7,947", "Delhi NCR") +
+        kpiPlain("Rated", "73%", "4+ votes") +
+        kpiPlain("Avg. rating", "3.28", "out of 5") +
+      "</div>" +
+      '<div class="md-row md-row-even"><div class="md-panel" data-p="rating"><div class="md-panel-title">Average rating by price range</div></div>' +
+      '<div class="md-panel" data-p="unrated"><div class="md-panel-title">Share with no rating (&lt; 4 votes)</div></div></div>';
+    var tip = tooltip(root);
+    hBars(root.querySelector('[data-p="rating"]'), {
+      items: [{ k: "Budget", v: 3.18 }, { k: "Mid-range", v: 3.25 }, { k: "Upscale", v: 3.57 }, { k: "Fine dining", v: 3.65 }],
+      color: C.blue, fmt: function (v) { return v.toFixed(2); }, fmtLong: function (v) { return v.toFixed(2) + " / 5"; },
+      aria: "Bar chart: average rating by price range, 3.18 budget to 3.65 fine dining"
+    }, tip);
+    hBars(root.querySelector('[data-p="unrated"]'), {
+      items: [{ k: "Budget", v: 40 }, { k: "Mid-range", v: 15 }, { k: "Upscale", v: 4 }, { k: "Fine dining", v: 4 },
+              { k: "No delivery", v: 36, c: C.amber }, { k: "Delivery", v: 4, c: C.amber }],
+      color: C.cyan, fmt: function (v) { return v + "%"; }, fmtLong: function (v) { return v + "% not rated"; },
+      aria: "Bar chart: share of restaurants with no rating, 40% budget to 4% fine dining; 36% without online delivery vs 4% with"
+    }, tip);
+  }
+
+  window.DashboardDemos = { sales: salesDemo, marketing: marketingDemo, zomato: zomatoDemo };
 
   /* --------------------------------------------- small decorative project art */
   window.ProjectArt = function (accent) {

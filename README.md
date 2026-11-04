@@ -91,10 +91,11 @@ Each dashboard is a block in `dashboards: [ … ]` in `js/data.js`.
 {
   id: "pbi-crm-churn",
   title: "CRM Churn Analysis",
-  tool: "Power BI",                               // "Power BI" or "Tableau" (used by the filter buttons)
+  tool: "Power BI",                               // "Power BI", "Tableau" or "Python" (used by the filter buttons)
   dataStatus: "Anonymized data",                  // see list below — always fill this in
   demo: null,
   image: "assets/dashboards/crm-churn.png",       // screenshot shown on the card
+  githubUrl: null,                                // e.g. "https://github.com/lolopaul208/my-analysis"
   tableauPublicUrl: null,                         // e.g. "https://public.tableau.com/app/profile/…"
   powerBiUrl: null,                               // e.g. a "Publish to web" link
   embedUrl: null,                                 // optional: interactive embed shown inside the case study
@@ -114,6 +115,7 @@ Each dashboard is a block in `dashboards: [ … ]` in `js/data.js`.
 Use exactly one of:
 | Label | When |
 |---|---|
+| `Public data (Kaggle)` | Open dataset used as is (cite the source) |
 | `Fictitious data` | Data invented for the demo |
 | `Anonymized data` | Real structure, but names / identifiers / amounts masked or scaled |
 | `Reconstructed from public data` | Rebuilt from open datasets (data.gouv.fr, Kaggle…) |

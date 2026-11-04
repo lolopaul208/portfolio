@@ -68,9 +68,33 @@ window.PORTFOLIO = {
        demo:  "sales" | "marketing"          → built-in interactive demo (fictitious data)
        image: "assets/dashboards/file.png"   → your screenshot
      Optional live links: tableauPublicUrl, powerBiUrl, embedUrl (iframe)
-     dataStatus: "Fictitious data" | "Anonymized data" | "Reconstructed from public data" | "Real data (authorized)"
+     dataStatus: "Fictitious data" | "Anonymized data" | "Public data (Kaggle)" | "Reconstructed from public data" | "Real data (authorized)"
+     Optional: githubUrl (link to the code / notebook)
   */
   dashboards: [
+    {
+      id: "zomato-delhi-ratings",
+      title: "What Drives a Restaurant's Rating? — Zomato, Delhi NCR",
+      tool: "Python",
+      dataStatus: "Public data (Kaggle)",
+      demo: "zomato",
+      image: null,
+      githubUrl: "https://github.com/lolopaul208/zomato-Note-restaurant-",
+      tableauPublicUrl: null,
+      powerBiUrl: null,
+      embedUrl: null,
+      problem:
+        "For a restaurant owner, an investor or Zomato's sales team: which factors — price, cuisine, location, online delivery, table booking — go with a better rating and more visibility?",
+      data:
+        "Kaggle Zomato Restaurant Dataset (9,551 restaurants, 15 countries). Scope: Delhi NCR, 7,947 restaurants, 5,808 rated. Cleaned in Python: a rating of 0 means 'not rated' (< 4 votes) and was set to missing — keeping it would drag the average from 3.28 to 2.40.",
+      kpis: ["Average rating & share rated 4+", "Share of restaurants with no rating", "Rating by price range", "Online delivery & table booking at equal price", "Price-adjusted rating by cuisine", "Best and worst localities"],
+      insights: [
+        "Rating rises with price: 3.18 for budget restaurants vs 3.65 for fine dining — compare restaurants within a price range.",
+        "40% of budget restaurants have no rating; 36% of restaurants without online delivery vs 4% with it. For small restaurants, delivery is first a visibility lever.",
+        "Table booking seems to add +0.28 point, but the gap disappears within each price range: a confounding effect of price.",
+        "Asian, Mexican, Mediterranean cuisines, cafés and desserts beat their price range; North Indian, Chinese and pizza lag behind."
+      ]
+    },
     {
       id: "pbi-commercial-performance",
       title: "Commercial Performance Dashboard",

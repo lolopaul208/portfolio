@@ -489,3 +489,27 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* v5: smaller first names, LOLO stays the strong element */
 .hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.2rem); }
 .hero h1 .first-names { font-size: .62em; font-weight: 600; letter-spacing: -0.02em; color: var(--text); vertical-align: 0.06em; }
+
+/* ---- Languages & Interests ---- */
+.beyond-grid { display: grid; grid-template-columns: 360px 1fr; gap: 64px; align-items: center; }
+.beyond-photo { margin: 0; position: relative; }
+.beyond-photo::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid rgba(34,211,238,.35); border-radius: 22px; z-index: 0; }
+.beyond-photo img { position: relative; z-index: 1; width: 100%; height: auto; aspect-ratio: 3/4; object-fit: cover; object-position: 50% 20%; border-radius: 22px; border: 1px solid var(--border-strong); box-shadow: 0 40px 90px -35px rgba(59,130,246,.65); }
+.beyond-content h2 { margin-bottom: 28px; }
+.beyond-block { margin-bottom: 30px; }
+.beyond-block:last-child { margin-bottom: 0; }
+.beyond-block h3 { font-family: var(--font-mono); font-size: .8rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; color: var(--cyan); margin-bottom: 14px; }
+.lang-list { display: grid; gap: 12px; max-width: 560px; }
+.lang-list li { display: grid; grid-template-columns: 110px 1fr; grid-template-rows: auto auto; column-gap: 16px; row-gap: 8px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; }
+.lang-name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; grid-row: span 2; }
+.lang-level { color: var(--text-2); font-size: .92rem; }
+.lang-bar { display: block; height: 6px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.lang-bar i { display: block; height: 100%; border-radius: 3px; background: var(--grad); }
+.interest-cards { display: flex; flex-wrap: wrap; gap: 10px; }
+.interest-cards li { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 12px; font-weight: 500; font-size: .95rem; background: var(--surface); border: 1px solid var(--border); transition: border-color .2s, transform .2s; }
+.interest-cards li:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.interest-cards svg { width: 20px; height: 20px; fill: none; stroke: var(--cyan); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+@media (max-width: 900px) {
+  .beyond-grid { grid-template-columns: 1fr; gap: 40px; }
+  .beyond-photo { max-width: 300px; }
+}

@@ -513,3 +513,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .beyond-grid { grid-template-columns: 1fr; gap: 40px; }
   .beyond-photo { max-width: 300px; }
 }
+/* v7: wider portrait, blue LED visible */
+.beyond-grid { grid-template-columns: 440px 1fr; gap: 72px; }
+.beyond-photo img { aspect-ratio: 5/6; object-position: 50% 50%; }
+@media (max-width: 1100px) { .beyond-grid { grid-template-columns: 380px 1fr; gap: 48px; } }
+@media (max-width: 900px) { .beyond-grid { grid-template-columns: 1fr; } .beyond-photo { max-width: 360px; } }
+/* wider portrait showing the blue LED */
+.beyond-grid { grid-template-columns: 480px 1fr; gap: 64px; }
+.beyond-photo img { aspect-ratio: auto; object-position: center; }
+@media (max-width: 1100px) { .beyond-grid { grid-template-columns: 400px 1fr; gap: 48px; } }
+@media (max-width: 900px) { .beyond-grid { grid-template-columns: 1fr; } .beyond-photo { max-width: 420px; } }
+@media (max-width: 600px) { .beyond-photo::before { inset: 12px -8px -12px 12px; } .beyond-photo { margin-right: 8px; } }

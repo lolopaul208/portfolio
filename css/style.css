@@ -486,3 +486,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .md-row-even { grid-template-columns: 1fr 1fr; }
 @media (max-width: 520px) { .md-row-even { grid-template-columns: 1fr; } }
 .badge-data-real { color: var(--green); background: rgba(52,211,153,.08); border-color: rgba(52,211,153,.45); }
+/* v5: smaller first names, LOLO stays the strong element */
+.hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.2rem); }
+.hero h1 .first-names { font-size: .62em; font-weight: 600; letter-spacing: -0.02em; color: var(--text); vertical-align: 0.06em; }

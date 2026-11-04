@@ -47,9 +47,12 @@ To update later: *Deploys* tab → drag the folder again.
 3. Build command: *(leave empty)*; Publish directory: `.`
 4. Every `git push` redeploys automatically.
 
-**After the first deploy: update the site URL.** The SEO/Open Graph tags assume `https://paul-lolo.netlify.app/`. If the final address differs (or you add a custom domain), replace that URL in:
+**Site URL.** The SEO/Open Graph tags use `https://lolopaul.netlify.app/`. If the final address differs (or you add a custom domain), replace that URL in:
 - `index.html` (`canonical`, `og:url`, `og:image`, `twitter:image`, JSON-LD `url`)
 - `robots.txt` and `sitemap.xml`
+
+## After each update: cache version
+`index.html` loads `css/style.css?v=20261104` and `js/*.js?v=20261104`. When you change a CSS or JS file, change that number (e.g. today's date) in the 4 places so visitors' browsers load the new version instead of an old copy.
 
 ## Editing content
 

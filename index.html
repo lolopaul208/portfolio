@@ -9,6 +9,8 @@
   <meta name="author" content="Atsou Paul LOLO">
   <meta name="theme-color" content="#060b1a">
   <link rel="canonical" href="https://lolopaul.netlify.app/">
+  <link rel="alternate" hreflang="en" href="https://lolopaul.netlify.app/">
+  <link rel="alternate" hreflang="fr" href="https://lolopaul.netlify.app/?lang=fr">
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website">
@@ -26,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261105b">
+  <link rel="stylesheet" href="css/style.css?v=20261105c">
 
   <script type="application/ld+json">
   {
@@ -47,23 +49,27 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="top">
-    <nav class="nav container" aria-label="Main navigation">
-      <a href="#home" class="brand" aria-label="Atsou Paul LOLO, home">
+    <nav class="nav container" aria-label="Main navigation" data-i18n-attr="aria-label:attr.nav">
+      <a href="#home" class="brand" aria-label="Atsou Paul LOLO, home" data-i18n-attr="aria-label:attr.brand">
         <span class="brand-mark" aria-hidden="true">PL</span>
         <span class="brand-name">Atsou Paul LOLO</span>
       </a>
+      <div class="lang-switch" role="group" aria-label="Language / Langue">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
+        <button type="button" data-lang="fr" aria-pressed="false" lang="fr" title="Français">FR</button>
+      </div>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#dashboards">Dashboards</a></li>
-        <li><a href="#marketing-ops">Marketing Ops</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#certifications" data-i18n="nav.certs">Certifications</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#dashboards" data-i18n="nav.dashboards">Dashboards</a></li>
+        <li><a href="#marketing-ops" data-i18n="nav.mops">Marketing Ops</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -75,18 +81,18 @@
       <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="container hero-inner">
         <div class="hero-text reveal">
-          <div class="hero-id"><img class="hero-avatar" src="assets/atsou-paul-lolo.jpg" alt="" width="64" height="64"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Open to new opportunities</p></div>
+          <div class="hero-id"><img class="hero-avatar" src="assets/atsou-paul-lolo.jpg" alt="" width="64" height="64"><p class="eyebrow" data-i18n="hero.eyebrow"><span class="status-dot" aria-hidden="true"></span> Open to new opportunities</p></div>
           <h1 id="hero-title"><span class="first-names">Atsou Paul</span> <span class="accent">LOLO</span></h1>
-          <p class="hero-role">Data Analyst <i>·</i> Marketing Operations <i>·</i> Data Marketing <i>·</i> Digital Project Manager</p>
-          <p class="hero-tagline">Turning Data into <span class="grad">Business Impact.</span></p>
-          <p class="hero-lead">I query, clean and model data, build dashboards that decision-makers actually use, and connect the numbers to marketing and business questions.</p>
-          <ul class="quick-facts" aria-label="Key facts">
+          <p class="hero-role" data-i18n="hero.role">Data Analyst <i>·</i> Marketing Operations <i>·</i> Data Marketing <i>·</i> Digital Project Manager</p>
+          <p class="hero-tagline" data-i18n="hero.tagline">Turning Data into <span class="grad">Business Impact.</span></p>
+          <p class="hero-lead" data-i18n="hero.lead">I query, clean and model data, build dashboards that decision-makers actually use, and connect the numbers to marketing and business questions.</p>
+          <ul class="quick-facts" aria-label="Key facts" data-i18n="hero.facts" data-i18n-attr="aria-label:attr.facts">
             <li><span>Available</span><strong>January 2027</strong></li>
             <li><span>Based in</span><strong>France</strong></li>
             <li><span>Languages</span><strong>French · English (B2)</strong></li>
           </ul>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View my projects <span aria-hidden="true">→</span></a>
+            <a href="#projects" class="btn btn-primary" data-i18n="hero.cta">View my projects <span aria-hidden="true">→</span></a>
             <a href="https://www.linkedin.com/in/paul-lolo-960610234/" class="btn btn-ghost" target="_blank" rel="noopener">
               <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.16-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56v4.92h-4z"/></svg>
               LinkedIn
@@ -102,25 +108,25 @@
           <pre class="terminal-body" aria-hidden="true"><code id="terminal-code"></code><span class="caret"></span></pre>
         </div>
       </div>
-      <a href="#about" class="scroll-hint" aria-label="Scroll to About"><span></span></a>
+      <a href="#about" class="scroll-hint" aria-label="Scroll to About" data-i18n-attr="aria-label:attr.scroll"><span></span></a>
     </section>
 
     <!-- =============================================================== ABOUT -->
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="container about-grid">
         <div class="reveal">
-          <p class="section-kicker">01. About</p>
-          <h2 id="about-title">Between data, marketing<br>and business.</h2>
+          <p class="section-kicker" data-i18n="about.kicker">01. About</p>
+          <h2 id="about-title" data-i18n="about.title">Between data, marketing<br>and business.</h2>
           <figure class="about-photo">
-            <img src="assets/atsou-paul-lolo.jpg" alt="Portrait of Atsou Paul LOLO" width="560" height="560" loading="lazy">
+            <img src="assets/atsou-paul-lolo.jpg" alt="Portrait of Atsou Paul LOLO" data-i18n-attr="alt:attr.aboutPhoto" width="560" height="560" loading="lazy">
             <figcaption><strong>Atsou Paul LOLO</strong> <span>Data Analyst · Marketing Ops · Lyon, France</span></figcaption>
           </figure>
         </div>
         <div class="about-text reveal">
-          <p>I'm a <strong>Master's student specialising in Data Marketing at INSEEC</strong>, with a background in data analysis, artificial intelligence and data-driven marketing.</p>
-          <p>My work sits where three questions meet: <em>what does the data say</em>, <em>what does the business need</em>, and <em>which digital tool solves it</em>. I've applied that in companies, on CRM data, relational databases and BI reporting, and in my own entrepreneurial projects, where I designed platforms, scoring models and acquisition strategies from scratch.</p>
-          <p>I'm <strong>open to new opportunities</strong>, including apprenticeships, in Data Analysis, Data Marketing, CRM, Marketing Operations or Business Intelligence, <strong>from January 2027</strong>, in France or abroad.</p>
-          <ul class="interest-list" aria-label="Areas of interest">
+          <p data-i18n="about.p1">I'm a <strong>Master's student specialising in Data Marketing at INSEEC</strong>, with a background in data analysis, artificial intelligence and data-driven marketing.</p>
+          <p data-i18n="about.p2">My work sits where three questions meet: <em>what does the data say</em>, <em>what does the business need</em>, and <em>which digital tool solves it</em>. I've applied that in companies, on CRM data, relational databases and BI reporting, and in my own entrepreneurial projects, where I designed platforms, scoring models and acquisition strategies from scratch.</p>
+          <p data-i18n="about.p3">I'm <strong>open to new opportunities</strong>, including apprenticeships, in Data Analysis, Data Marketing, CRM, Marketing Operations or Business Intelligence, <strong>from January 2027</strong>, in France or abroad.</p>
+          <ul class="interest-list" aria-label="Areas of interest" data-i18n="about.interests" data-i18n-attr="aria-label:attr.interests">
             <li>Data Analysis</li><li>Business Intelligence</li><li>Marketing Operations</li>
             <li>CRM Analytics</li><li>Digital Marketing</li><li>Product Management</li>
           </ul>
@@ -132,35 +138,35 @@
     <section class="section section-alt" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <div class="section-head reveal">
-          <p class="section-kicker">02. Skills</p>
-          <h2 id="skills-title">Toolkit</h2>
-          <p class="section-sub">From the raw table to the decision: five areas I work across.</p>
+          <p class="section-kicker" data-i18n="skills.kicker">02. Skills</p>
+          <h2 id="skills-title" data-i18n="skills.title">Toolkit</h2>
+          <p class="section-sub" data-i18n="skills.sub">From the raw table to the decision: five areas I work across.</p>
         </div>
         <div class="skills-grid">
           <article class="skill-card reveal">
             <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
             <h3>Data &amp; Analytics</h3>
-            <ul class="chips"><li>SQL</li><li>PostgreSQL</li><li>Python</li><li>Excel</li><li>Data Cleaning</li><li>Data Enrichment</li><li>Data Quality</li></ul>
+            <ul class="chips" data-i18n="skills.c1"><li>SQL</li><li>PostgreSQL</li><li>Python</li><li>Excel</li><li>Data Cleaning</li><li>Data Enrichment</li><li>Data Quality</li></ul>
           </article>
           <article class="skill-card reveal">
             <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
             <h3>Business Intelligence</h3>
-            <ul class="chips"><li>Power BI</li><li>Tableau</li><li>Dashboard Design</li><li>Reporting</li><li>KPI Monitoring</li><li>Data Visualization</li></ul>
+            <ul class="chips" data-i18n="skills.c2"><li>Power BI</li><li>Tableau</li><li>Dashboard Design</li><li>Reporting</li><li>KPI Monitoring</li><li>Data Visualization</li></ul>
           </article>
           <article class="skill-card reveal">
             <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.6.8 2.6 2.6 3 5.2"/></svg></div>
             <h3>Marketing Operations</h3>
-            <ul class="chips"><li>CRM</li><li>Customer Analytics</li><li>Marketing Performance</li><li>Segmentation</li><li>Reporting</li></ul>
+            <ul class="chips" data-i18n="skills.c3"><li>CRM</li><li>Customer Analytics</li><li>Marketing Performance</li><li>Segmentation</li><li>Reporting</li></ul>
           </article>
           <article class="skill-card reveal">
             <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
-            <h3>Digital Growth</h3>
-            <ul class="chips"><li>SEO</li><li>Local SEO</li><li>Acquisition Strategy</li><li>Web Analytics</li><li>Google Analytics</li><li>Shopify</li><li>PrestaShop</li><li>Conversion Optimization</li></ul>
+            <h3 data-i18n="skills.growth">Digital Growth</h3>
+            <ul class="chips" data-i18n="skills.c4"><li>SEO</li><li>Local SEO</li><li>Acquisition Strategy</li><li>Web Analytics</li><li>Google Analytics</li><li>Shopify</li><li>PrestaShop</li><li>Conversion Optimization</li></ul>
           </article>
           <article class="skill-card reveal">
             <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13h3M8 16h6"/></svg></div>
-            <h3>Product &amp; Project Management</h3>
-            <ul class="chips"><li>Digital Project Management</li><li>Product Thinking</li><li>User Journey</li><li>UX Research</li><li>A/A &amp; A/B Testing</li><li>Process Design</li></ul>
+            <h3 data-i18n="skills.product">Product &amp; Project Management</h3>
+            <ul class="chips" data-i18n="skills.c5"><li>Digital Project Management</li><li>Product Thinking</li><li>User Journey</li><li>UX Research</li><li>A/A &amp; A/B Testing</li><li>Process Design</li></ul>
           </article>
         </div>
       </div>
@@ -170,30 +176,30 @@
     <section class="section" id="certifications" aria-labelledby="cert-title">
       <div class="container">
         <div class="section-head reveal">
-          <p class="section-kicker">03. Certifications</p>
+          <p class="section-kicker" data-i18n="certs.kicker">03. Certifications</p>
           <h2 id="cert-title">Certifications</h2>
-          <p class="section-sub">Microsoft certifications currently in preparation, to validate my Power BI and Microsoft Fabric skills.</p>
+          <p class="section-sub" data-i18n="certs.sub">Microsoft certifications currently in preparation, to validate my Power BI and Microsoft Fabric skills.</p>
         </div>
         <div class="cert-grid">
           <article class="cert-card reveal">
             <div class="cert-top">
               <div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 8 5-3 5 3-1.5-8"/><path d="M9.5 9l1.8 1.8L15 7.5"/></svg></div>
-              <span class="cert-status"><span class="cert-dot" aria-hidden="true"></span>In progress</span>
+              <span class="cert-status" data-i18n="certs.status"><span class="cert-dot" aria-hidden="true"></span>In progress</span>
             </div>
             <p class="cert-code mono">PL-300</p>
             <h3>Microsoft Certified: Power BI Data Analyst Associate</h3>
-            <p class="cert-desc">Preparing, modeling, visualizing and analyzing data with Power BI, and managing and securing Power BI assets.</p>
-            <a class="cert-link" href="https://learn.microsoft.com/en-us/credentials/certifications/power-bi-data-analyst-associate/" target="_blank" rel="noopener">About this certification ↗<span class="sr-only"> (opens in a new tab)</span></a>
+            <p class="cert-desc" data-i18n="certs.pl300">Preparing, modeling, visualizing and analyzing data with Power BI, and managing and securing Power BI assets.</p>
+            <a class="cert-link" data-i18n="certs.link" href="https://learn.microsoft.com/en-us/credentials/certifications/power-bi-data-analyst-associate/" target="_blank" rel="noopener">About this certification ↗<span class="sr-only"> (opens in a new tab)</span></a>
           </article>
           <article class="cert-card reveal">
             <div class="cert-top">
               <div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 8 5-3 5 3-1.5-8"/><path d="M9.5 9l1.8 1.8L15 7.5"/></svg></div>
-              <span class="cert-status"><span class="cert-dot" aria-hidden="true"></span>In progress</span>
+              <span class="cert-status" data-i18n="certs.status"><span class="cert-dot" aria-hidden="true"></span>In progress</span>
             </div>
             <p class="cert-code mono">DP-600</p>
             <h3>Microsoft Certified: Fabric Analytics Engineer Associate</h3>
-            <p class="cert-desc">Lakehouses, warehouses, data pipelines and semantic models in Microsoft Fabric, with SQL, DAX and PySpark.</p>
-            <a class="cert-link" href="https://learn.microsoft.com/en-us/credentials/certifications/fabric-analytics-engineer-associate/" target="_blank" rel="noopener">About this certification ↗<span class="sr-only"> (opens in a new tab)</span></a>
+            <p class="cert-desc" data-i18n="certs.dp600">Lakehouses, warehouses, data pipelines and semantic models in Microsoft Fabric, with SQL, DAX and PySpark.</p>
+            <a class="cert-link" data-i18n="certs.link" href="https://learn.microsoft.com/en-us/credentials/certifications/fabric-analytics-engineer-associate/" target="_blank" rel="noopener">About this certification ↗<span class="sr-only"> (opens in a new tab)</span></a>
           </article>
         </div>
       </div>
@@ -203,9 +209,9 @@
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="container">
         <div class="section-head reveal">
-          <p class="section-kicker">04. Projects</p>
-          <h2 id="projects-title">Things I've built</h2>
-          <p class="section-sub">Entrepreneurial and personal projects, designed and run outside of employment. Click a card for details.</p>
+          <p class="section-kicker" data-i18n="projects.kicker">04. Projects</p>
+          <h2 id="projects-title" data-i18n="projects.title">Things I've built</h2>
+          <p class="section-sub" data-i18n="projects.sub">Entrepreneurial and personal projects, designed and run outside of employment. Click a card for details.</p>
         </div>
         <div class="projects-grid" id="projects-grid"></div>
       </div>
@@ -215,18 +221,18 @@
     <section class="section section-alt" id="dashboards" aria-labelledby="dash-title">
       <div class="container">
         <div class="section-head reveal">
-          <p class="section-kicker">05. Dashboards</p>
-          <h2 id="dash-title">Data Visualization Gallery</h2>
-          <p class="section-sub">Analyses and dashboards built with Python, Power BI and Tableau. Each one comes with its business question, the data used, the KPIs and the takeaways.</p>
+          <p class="section-kicker" data-i18n="dash.kicker">05. Dashboards</p>
+          <h2 id="dash-title" data-i18n="dash.title">Data Visualization Gallery</h2>
+          <p class="section-sub" data-i18n="dash.sub">Analyses and dashboards built with Python, Power BI and Tableau. Each one comes with its business question, the data used, the KPIs and the takeaways.</p>
         </div>
 
         <div class="privacy-note reveal" role="note">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
-          <p><strong>Confidentiality.</strong> Work done for employers and clients is never published with real figures. Dashboards shown here are built on <strong>public</strong>, <strong>fictitious</strong>, <strong>anonymized</strong> or <strong>reconstructed</strong> data, each card carries a label saying which.</p>
+          <p data-i18n="dash.privacy"><strong>Confidentiality.</strong> Work done for employers and clients is never published with real figures. Dashboards shown here are built on <strong>public</strong>, <strong>fictitious</strong>, <strong>anonymized</strong> or <strong>reconstructed</strong> data, each card carries a label saying which.</p>
         </div>
 
-        <div class="dash-filters reveal" role="group" aria-label="Filter dashboards by tool">
-          <button class="filter active" data-filter="all" aria-pressed="true">All</button>
+        <div class="dash-filters reveal" role="group" aria-label="Filter dashboards by tool" data-i18n-attr="aria-label:attr.filters">
+          <button class="filter active" data-filter="all" data-i18n="dash.all" aria-pressed="true">All</button>
           <button class="filter" data-filter="Power BI" aria-pressed="false">Power BI</button>
           <button class="filter" data-filter="Tableau" aria-pressed="false">Tableau</button>
           <button class="filter" data-filter="Python" aria-pressed="false">Python</button>
@@ -240,12 +246,12 @@
     <section class="section" id="marketing-ops" aria-labelledby="mops-title">
       <div class="container">
         <div class="section-head reveal">
-          <p class="section-kicker">06. Marketing Operations</p>
+          <p class="section-kicker" data-i18n="mops.kicker">06. Marketing Operations</p>
           <h2 id="mops-title">Growth &amp; Marketing Ops</h2>
-          <p class="section-sub">Search, analytics and tracking: the operational layer that makes acquisition measurable and turns traffic into qualified leads.</p>
+          <p class="section-sub" data-i18n="mops.sub">Search, analytics and tracking: the operational layer that makes acquisition measurable and turns traffic into qualified leads.</p>
         </div>
 
-        <ol class="workflow reveal" aria-label="How I work on acquisition">
+        <ol class="workflow reveal" aria-label="How I work on acquisition" data-i18n="mops.workflow" data-i18n-attr="aria-label:attr.workflow">
           <li><p class="wf-head"><span class="wf-n">01.</span> <strong>Audit</strong></p> <span class="wf-desc">Where does traffic come from? What blocks conversion?</span></li>
           <li><p class="wf-head"><span class="wf-n">02.</span> <strong>Track</strong></p> <span class="wf-desc">UTMs, events and goals so every channel is measured the same way.</span></li>
           <li><p class="wf-head"><span class="wf-n">03.</span> <strong>Optimize</strong></p> <span class="wf-desc">SEO, paid search and landing pages, prioritised by impact.</span></li>
@@ -260,8 +266,8 @@
     <section class="section section-alt" id="experience" aria-labelledby="exp-title">
       <div class="container">
         <div class="section-head reveal">
-          <p class="section-kicker">07. Experience</p>
-          <h2 id="exp-title">Professional experience</h2>
+          <p class="section-kicker" data-i18n="exp.kicker">07. Experience</p>
+          <h2 id="exp-title" data-i18n="exp.title">Professional experience</h2>
         </div>
         <ol class="timeline" id="timeline"></ol>
       </div>
@@ -271,29 +277,29 @@
     <section class="section" id="beyond" aria-labelledby="beyond-title">
       <div class="container beyond-grid">
         <figure class="beyond-photo reveal">
-          <img src="assets/atsou-paul-lolo-portrait.jpg?v=2" alt="Atsou Paul LOLO in a navy suit" width="750" height="900" loading="lazy">
+          <img src="assets/atsou-paul-lolo-portrait.jpg?v=2" alt="Atsou Paul LOLO in a navy suit" data-i18n-attr="alt:attr.suitPhoto" width="750" height="900" loading="lazy">
         </figure>
         <div class="beyond-content">
           <div class="reveal">
-            <p class="section-kicker">08. Languages &amp; Interests</p>
-            <h2 id="beyond-title">Beyond the data.</h2>
+            <p class="section-kicker" data-i18n="beyond.kicker">08. Languages &amp; Interests</p>
+            <h2 id="beyond-title" data-i18n="beyond.title">Beyond the data.</h2>
           </div>
 
           <div class="beyond-block reveal">
-            <h3>Languages</h3>
-            <ul class="lang-list">
+            <h3 data-i18n="beyond.languages">Languages</h3>
+            <ul class="lang-list" data-i18n="beyond.langlist">
               <li><span class="lang-name">French</span><span class="lang-level">Native</span><span class="lang-bar" aria-hidden="true"><i style="width:100%"></i></span></li>
               <li><span class="lang-name">English</span><span class="lang-level">Technical, B2</span><span class="lang-bar" aria-hidden="true"><i style="width:66%"></i></span></li>
             </ul>
           </div>
 
           <div class="beyond-block reveal">
-            <h3>Interests</h3>
+            <h3 data-i18n="beyond.interests">Interests</h3>
             <ul class="interest-cards">
               <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Tech</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>Artificial Intelligence</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span data-i18n="beyond.int.ai">Artificial Intelligence</span></li>
               <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/><rect x="16" y="9" width="6" height="6" rx="1"/><path d="M8 12h1M15 12h1"/></svg>Blockchain</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Renewable Energy</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span data-i18n="beyond.int.energy">Renewable Energy</span></li>
             </ul>
           </div>
         </div>
@@ -305,14 +311,14 @@
       <div class="container">
         <div class="contact-card reveal">
           <div class="contact-left">
-          <p class="section-kicker">09. Contact</p>
-          <h2 id="contact-title">Let's work together.</h2>
-          <p class="contact-msg">Open to new opportunities in <strong>Data Analysis, Data Marketing, CRM, Marketing Operations</strong> and <strong>Business Intelligence</strong>.</p>
+          <p class="section-kicker" data-i18n="contact.kicker">09. Contact</p>
+          <h2 id="contact-title" data-i18n="contact.title">Let's work together.</h2>
+          <p class="contact-msg" data-i18n="contact.msg">Open to new opportunities in <strong>Data Analysis, Data Marketing, CRM, Marketing Operations</strong> and <strong>Business Intelligence</strong>.</p>
           </div>
           <div class="contact-actions">
             <a class="btn btn-primary" href="mailto:lolopaul208@gmail.com?subject=Opportunity%20for%20Atsou%20Paul%20LOLO">
               <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-              Email me
+              <span data-i18n="contact.email">Email me</span>
             </a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/paul-lolo-960610234/" target="_blank" rel="noopener">
               <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.16-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56v4.92h-4z"/></svg>
@@ -320,7 +326,7 @@
             </a>
           </div>
           <p class="contact-email"><span class="mono">lolopaul208@gmail.com</span>
-            <button class="copy-btn" data-copy="lolopaul208@gmail.com" aria-label="Copy email address">Copy</button>
+            <button class="copy-btn" data-copy="lolopaul208@gmail.com" aria-label="Copy email address" data-i18n-attr="aria-label:attr.copy">Copy</button>
           </p>
         </div>
       </div>
@@ -330,19 +336,20 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Atsou Paul LOLO</p>
-      <p class="muted">Dashboard demos use fictitious data.</p>
-      <a href="#home" class="muted back-to-top">Back to top ↑</a>
+      <p class="muted" data-i18n="footer.note">Some dashboard demos use fictitious data, labelled as such.</p>
+      <a href="#home" class="muted back-to-top" data-i18n="footer.top">Back to top ↑</a>
     </div>
   </footer>
 
   <!-- Detail dialog (projects & dashboards) -->
   <dialog class="modal" id="modal" aria-labelledby="modal-title">
-    <button class="modal-close" aria-label="Close" data-close>×</button>
+    <button class="modal-close" aria-label="Close" data-close data-i18n-attr="aria-label:attr.close">×</button>
     <div class="modal-content" id="modal-content"></div>
   </dialog>
 
-  <script src="js/data.js?v=20261105b"></script>
-  <script src="js/charts.js?v=20261105b"></script>
-  <script src="js/main.js?v=20261105b"></script>
+  <script src="js/i18n.js?v=20261105c"></script>
+  <script src="js/data.js?v=20261105c"></script>
+  <script src="js/charts.js?v=20261105c"></script>
+  <script src="js/main.js?v=20261105c"></script>
 </body>
 </html>

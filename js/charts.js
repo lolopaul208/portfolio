@@ -1,6 +1,7 @@
 /* =========================================================================
    Built-in dashboard demos, lightweight SVG charts, no library.
-   ALL FIGURES BELOW ARE FICTITIOUS and only illustrate dashboard design.
+   Sales & marketing demos use FICTITIOUS figures; the Zomato demo uses real
+   public data (Kaggle). Labels follow the EN / FR switch.
    ========================================================================= */
 (function () {
   "use strict";
@@ -15,7 +16,6 @@
     return n;
   }
   function h(html) { var d = document.createElement("div"); d.innerHTML = html.trim(); return d.firstChild; }
-  function fmtNum(n, dec) { return n.toLocaleString("en-US", { minimumFractionDigits: dec || 0, maximumFractionDigits: dec || 0 }); }
 
   /* ------------------------------------------------------------- tooltip */
   function tooltip(root) {
@@ -107,9 +107,20 @@
     }
   }
 
+  /* ------------------------------------------------------ language helpers */
+  var L = function () { return window.I18N && window.I18N.lang() === "fr" ? "fr" : "en"; };
+  var fr = function () { return L() === "fr"; };
+  var tr = function (en, frText) { return fr() ? frText : en; };
+  var num = function (v, dec) {
+    return v.toLocaleString(fr() ? "fr-FR" : "en-US", { minimumFractionDigits: dec || 0, maximumFractionDigits: dec || 0 });
+  };
+  var keur = function (v) { return fr() ? num(v) + " k€" : "€" + num(v) + "k"; };
+
   /* ------------------------------------------------------ horizontal bars */
   function hBars(panel, opts, tip) {
-    var rowH = 22, W = 200, lw = 74, H = opts.items.length * rowH;
+    var rowH = 22, W = 200, H = opts.items.length * rowH;
+    var longest = Math.max.apply(null, opts.items.map(function (d) { return d.k.length; }));
+    var lw = Math.max(74, Math.round(longest * 5.4) + 8);
     var max = Math.max.apply(null, opts.items.map(function (d) { return d.v; }));
     var svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": opts.aria });
     opts.items.forEach(function (d, i) {
@@ -117,7 +128,7 @@
       el("text", { x: 0, y: y + 14, class: "chart-axis" }, svg).textContent = d.k;
       var bar = el("rect", { x: lw, y: y + 5, width: Math.max(bw, 2), height: 12, rx: 3, fill: d.c || opts.color }, svg);
       el("text", { x: lw + bw + 5, y: y + 14, class: "chart-axis", style: "fill:#9aa8c4" }, svg).textContent = opts.fmt(d.v);
-      bar.addEventListener("mousemove", function (e) { bar.setAttribute("opacity", .8); tip.show(d.k + ": <b>" + opts.fmtLong(d.v) + "</b>", e); });
+      bar.addEventListener("mousemove", function (e) { bar.setAttribute("opacity", .8); tip.show(d.k + (fr() ? " : " : ": ") + "<b>" + opts.fmtLong(d.v) + "</b>", e); });
       bar.addEventListener("mouseleave", function () { bar.setAttribute("opacity", 1); tip.hide(); });
     });
     panel.appendChild(svg);
@@ -125,82 +136,87 @@
 
   function kpi(label, value, delta, up) {
     return '<div class="kpi"><div class="kpi-label">' + label + '</div><div class="kpi-value">' + value +
-      '</div><div class="kpi-delta ' + (up ? "up" : "down") + '">' + (up ? "▲ " : "▼ ") + delta + ' <span class="muted">vs prev. year</span></div></div>';
+      '</div><div class="kpi-delta ' + (up ? "up" : "down") + '">' + (up ? "▲ " : "▼ ") + delta + ' <span class="muted">' + tr("vs prev. year", "vs N-1") + "</span></div></div>";
   }
+  var flagFict = function () { return '<span class="md-flag">' + tr("FICTITIOUS DATA", "DONNÉES FICTIVES") + "</span>"; };
 
   /* ===================================================== DEMO: SALES (Power BI) */
   function salesDemo(root) {
     // FICTITIOUS DATA
-    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var months = fr() ? ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]
+                      : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var revenue = [182, 175, 198, 206, 221, 214, 189, 176, 232, 248, 261, 295];   // k€
     var target  = [190, 185, 195, 200, 210, 215, 200, 185, 225, 240, 255, 280];   // k€
     var orders = 29380;
     var total = revenue.reduce(function (a, b) { return a + b; }, 0);             // 2,597 k€
     var aov = (total * 1000) / orders;
     var cats = [
-      { k: "Equipment", v: 862 }, { k: "Services", v: 695 },
-      { k: "Accessories", v: 538 }, { k: "Software", v: 502 }
+      { k: tr("Equipment", "Équipement"), v: 862 }, { k: "Services", v: 695 },
+      { k: tr("Accessories", "Accessoires"), v: 538 }, { k: tr("Software", "Logiciels"), v: 502 }
     ];
+    var revenueTxt = fr() ? num(total / 1000, 2) + " M€" : "€" + num(total / 1000, 2) + "M";
+    var aovTxt = fr() ? num(aov, 1) + " €" : "€" + num(aov, 1);
 
     root.innerHTML =
-      '<div class="md-head"><span class="md-title">Commercial Performance · FY demo</span><span class="md-flag">FICTITIOUS DATA</span></div>' +
+      '<div class="md-head"><span class="md-title">' + tr("Commercial Performance · FY demo", "Performance commerciale · démo annuelle") + "</span>" + flagFict() + "</div>" +
       '<div class="kpis">' +
-        kpi("Revenue", "€" + (total / 1000).toFixed(2) + "M", "8.4%", true) +
-        kpi("Orders", fmtNum(orders), "5.1%", true) +
-        kpi("Avg. order value", "€" + aov.toFixed(1), "3.2%", true) +
+        kpi(tr("Revenue", "Chiffre d'affaires"), revenueTxt, num(8.4, 1) + (fr() ? " %" : "%"), true) +
+        kpi(tr("Orders", "Commandes"), num(orders), num(5.1, 1) + (fr() ? " %" : "%"), true) +
+        kpi(tr("Avg. order value", "Panier moyen"), aovTxt, num(3.2, 1) + (fr() ? " %" : "%"), true) +
       "</div>" +
-      '<div class="md-row"><div class="md-panel" data-p="trend"><div class="md-panel-title">Monthly revenue vs target (k€)</div></div>' +
-      '<div class="md-panel" data-p="cat"><div class="md-panel-title">Revenue by category (k€)</div></div></div>';
+      '<div class="md-row"><div class="md-panel" data-p="trend"><div class="md-panel-title">' + tr("Monthly revenue vs target (k€)", "CA mensuel vs objectif (k€)") + "</div></div>" +
+      '<div class="md-panel" data-p="cat"><div class="md-panel-title">' + tr("Revenue by category (k€)", "CA par catégorie (k€)") + "</div></div></div>";
 
     var tip = tooltip(root);
     lineChart(root.querySelector('[data-p="trend"]'), {
       labels: months, area: true, zero: false,
-      series: [{ name: "Revenue", values: revenue, color: C.cyan }, { name: "Target", values: target, color: C.muted, dash: true }],
-      tick: function (v) { return Math.round(v); }, fmt: function (v) { return "€" + v + "k"; },
-      aria: "Line chart of fictitious monthly revenue against target, January to December"
+      series: [{ name: tr("Revenue", "CA"), values: revenue, color: C.cyan }, { name: tr("Target", "Objectif"), values: target, color: C.muted, dash: true }],
+      tick: function (v) { return num(Math.round(v)); }, fmt: keur,
+      aria: tr("Line chart of fictitious monthly revenue against target, January to December", "Courbe fictive du CA mensuel comparé à l'objectif, de janvier à décembre")
     }, tip);
     hBars(root.querySelector('[data-p="cat"]'), {
       items: cats, color: C.blue,
-      fmt: function (v) { return v; }, fmtLong: function (v) { return "€" + v + "k"; },
-      aria: "Bar chart of fictitious revenue by product category"
+      fmt: function (v) { return num(v); }, fmtLong: keur,
+      aria: tr("Bar chart of fictitious revenue by product category", "Barres fictives du CA par catégorie de produits")
     }, tip);
   }
 
   /* ================================================== DEMO: MARKETING (Tableau) */
   function marketingDemo(root) {
     // FICTITIOUS DATA
-    var weeks = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12"];
+    var weeks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"].map(function (w) { return tr("W", "S") + w; });
     var visitors = [8.2, 8.9, 9.4, 9.1, 10.3, 11.0, 10.6, 11.8, 12.4, 12.1, 13.5, 14.2]; // thousands
     var totalVisitors = visitors.reduce(function (a, b) { return a + b; }, 0) * 1000;   // 131,500
     var leads = 3945;
     var cr = (leads / totalVisitors) * 100;
+    var pct = function (v, d) { return num(v, d) + (fr() ? " %" : "%"); };
     var channels = [
-      { k: "Email", v: 6.8, c: C.cyan }, { k: "Organic search", v: 4.1, c: C.blue },
-      { k: "Referral", v: 3.6, c: C.blue }, { k: "Paid search", v: 3.2, c: C.blue },
-      { k: "Social", v: 1.4, c: C.muted }
+      { k: "E-mail", v: 6.8, c: C.cyan }, { k: tr("Organic search", "SEO"), v: 4.1, c: C.blue },
+      { k: tr("Referral", "Référents"), v: 3.6, c: C.blue }, { k: tr("Paid search", "SEA"), v: 3.2, c: C.blue },
+      { k: tr("Social", "Réseaux sociaux"), v: 1.4, c: C.muted }
     ];
 
     root.innerHTML =
-      '<div class="md-head"><span class="md-title">Customer &amp; Marketing Analytics · Q demo</span><span class="md-flag">FICTITIOUS DATA</span></div>' +
+      '<div class="md-head"><span class="md-title">' + tr("Customer &amp; Marketing Analytics · Q demo", "Clients &amp; marketing · démo trimestrielle") + "</span>" + flagFict() + "</div>" +
       '<div class="kpis">' +
-        kpi("Website visitors", fmtNum(totalVisitors / 1000, 1) + "k", "12.6%", true) +
-        kpi("Leads generated", fmtNum(leads), "9.8%", true) +
-        kpi("Conversion rate", cr.toFixed(1) + "%", "0.1 pt", false) +
+        kpi(tr("Website visitors", "Visiteurs du site"), num(totalVisitors / 1000, 1) + (fr() ? " k" : "k"), pct(12.6, 1), true) +
+        kpi(tr("Leads generated", "Leads générés"), num(leads), pct(9.8, 1), true) +
+        kpi(tr("Conversion rate", "Taux de conversion"), pct(cr, 1), num(0.1, 1) + " pt", false) +
       "</div>" +
-      '<div class="md-row"><div class="md-panel" data-p="trend"><div class="md-panel-title">Weekly website visitors (k)</div></div>' +
-      '<div class="md-panel" data-p="ch"><div class="md-panel-title">Conversion rate by channel (%)</div></div></div>';
+      '<div class="md-row"><div class="md-panel" data-p="trend"><div class="md-panel-title">' + tr("Weekly website visitors (k)", "Visiteurs par semaine (k)") + "</div></div>" +
+      '<div class="md-panel" data-p="ch"><div class="md-panel-title">' + tr("Conversion rate by channel (%)", "Taux de conversion par canal (%)") + "</div></div></div>";
 
     var tip = tooltip(root);
     lineChart(root.querySelector('[data-p="trend"]'), {
       labels: weeks, area: true, zero: false,
-      series: [{ name: "Visitors", values: visitors, color: C.blue }],
-      tick: function (v) { return v.toFixed(0) + "k"; }, fmt: function (v) { return fmtNum(v * 1000); },
-      aria: "Line chart of fictitious weekly website visitors over 12 weeks"
+      series: [{ name: tr("Visitors", "Visiteurs"), values: visitors, color: C.blue }],
+      tick: function (v) { return num(v) + (fr() ? " k" : "k"); }, fmt: function (v) { return num(v * 1000); },
+      aria: tr("Line chart of fictitious weekly website visitors over 12 weeks", "Courbe fictive des visiteurs hebdomadaires sur 12 semaines")
     }, tip);
     hBars(root.querySelector('[data-p="ch"]'), {
       items: channels,
-      fmt: function (v) { return v.toFixed(1); }, fmtLong: function (v) { return v.toFixed(1) + "% conversion"; },
-      aria: "Bar chart of fictitious conversion rate by acquisition channel"
+      fmt: function (v) { return num(v, 1); }, fmtLong: function (v) { return pct(v, 1) + tr(" conversion", " de conversion"); },
+      aria: tr("Bar chart of fictitious conversion rate by acquisition channel", "Barres fictives du taux de conversion par canal d'acquisition")
     }, tip);
   }
 
@@ -211,26 +227,29 @@
   }
   function zomatoDemo(root) {
     // Source: analysis.ipynb in github.com/lolopaul208/zomato-Note-restaurant- (Delhi NCR)
+    var pct = function (v) { return v + (fr() ? " %" : "%"); };
+    var price = [tr("Budget", "Économique"), tr("Mid-range", "Milieu de gamme"), tr("Upscale", "Haut de gamme"), tr("Fine dining", "Gastronomique")];
     root.innerHTML =
-      '<div class="md-head"><span class="md-title">Zomato restaurants · Delhi NCR</span><span class="md-flag md-flag-real">PUBLIC DATA · KAGGLE</span></div>' +
+      '<div class="md-head"><span class="md-title">' + tr("Zomato restaurants · Delhi NCR", "Restaurants Zomato · Delhi NCR") + '</span><span class="md-flag md-flag-real">' + tr("PUBLIC DATA · KAGGLE", "DONNÉES PUBLIQUES · KAGGLE") + "</span></div>" +
       '<div class="kpis">' +
-        kpiPlain("Restaurants", "7,947", "Delhi NCR") +
-        kpiPlain("Rated", "73%", "4+ votes") +
-        kpiPlain("Avg. rating", "3.28", "out of 5") +
+        kpiPlain("Restaurants", num(7947), "Delhi NCR") +
+        kpiPlain(tr("Rated", "Notés"), pct(73), tr("4+ votes", "4 votes et +")) +
+        kpiPlain(tr("Avg. rating", "Note moyenne"), num(3.28, 2), tr("out of 5", "sur 5")) +
       "</div>" +
-      '<div class="md-row md-row-even"><div class="md-panel" data-p="rating"><div class="md-panel-title">Average rating by price range</div></div>' +
-      '<div class="md-panel" data-p="unrated"><div class="md-panel-title">Share with no rating (&lt; 4 votes)</div></div></div>';
+      '<div class="md-row md-row-even"><div class="md-panel" data-p="rating"><div class="md-panel-title">' + tr("Average rating by price range", "Note moyenne par gamme de prix") + "</div></div>" +
+      '<div class="md-panel" data-p="unrated"><div class="md-panel-title">' + tr("Share with no rating (&lt; 4 votes)", "Part sans note (&lt; 4 votes)") + "</div></div></div>";
     var tip = tooltip(root);
     hBars(root.querySelector('[data-p="rating"]'), {
-      items: [{ k: "Budget", v: 3.18 }, { k: "Mid-range", v: 3.25 }, { k: "Upscale", v: 3.57 }, { k: "Fine dining", v: 3.65 }],
-      color: C.blue, fmt: function (v) { return v.toFixed(2); }, fmtLong: function (v) { return v.toFixed(2) + " / 5"; },
-      aria: "Bar chart: average rating by price range, 3.18 budget to 3.65 fine dining"
+      items: [{ k: price[0], v: 3.18 }, { k: price[1], v: 3.25 }, { k: price[2], v: 3.57 }, { k: price[3], v: 3.65 }],
+      color: C.blue, fmt: function (v) { return num(v, 2); }, fmtLong: function (v) { return num(v, 2) + " / 5"; },
+      aria: tr("Bar chart: average rating by price range, 3.18 budget to 3.65 fine dining", "Barres : note moyenne par gamme de prix, de 3,18 en économique à 3,65 en gastronomique")
     }, tip);
     hBars(root.querySelector('[data-p="unrated"]'), {
-      items: [{ k: "Budget", v: 40 }, { k: "Mid-range", v: 15 }, { k: "Upscale", v: 4 }, { k: "Fine dining", v: 4 },
-              { k: "No delivery", v: 36, c: C.amber }, { k: "Delivery", v: 4, c: C.amber }],
-      color: C.cyan, fmt: function (v) { return v + "%"; }, fmtLong: function (v) { return v + "% not rated"; },
-      aria: "Bar chart: share of restaurants with no rating, 40% budget to 4% fine dining; 36% without online delivery vs 4% with"
+      items: [{ k: price[0], v: 40 }, { k: price[1], v: 15 }, { k: price[2], v: 4 }, { k: price[3], v: 4 },
+              { k: tr("No delivery", "Sans livraison"), v: 36, c: C.amber }, { k: tr("Delivery", "Livraison"), v: 4, c: C.amber }],
+      color: C.cyan, fmt: pct, fmtLong: function (v) { return pct(v) + tr(" not rated", " non notés"); },
+      aria: tr("Bar chart: share of restaurants with no rating, 40% budget to 4% fine dining; 36% without online delivery vs 4% with",
+               "Barres : part des restaurants sans note, de 40 % en économique à 4 % en gastronomique ; 36 % sans livraison en ligne contre 4 % avec")
     }, tip);
   }
 

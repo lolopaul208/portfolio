@@ -10,7 +10,8 @@ paul-lolo-portfolio/
 ├── 404.html              ← "page not found"
 ├── css/style.css         ← all styling (colours at the top, in :root)
 ├── js/
-│   ├── data.js           ← ✏️ CONTENT: projects, dashboards, marketing ops, experience  (edit this one most often)
+│   ├── i18n.js           ← EN / FR switch + French texts of the page
+│   ├── data.js           ← ✏️ CONTENT: projects, dashboards, marketing ops, experience (EN + `fr` blocks)  (edit this one most often)
 │   ├── charts.js         ← built-in dashboard demos (fictitious data)
 │   └── main.js           ← behaviour: menu, terminal, cards, dialog, filters
 ├── assets/
@@ -53,6 +54,13 @@ To update later: *Deploys* tab → drag the folder again.
 
 ## After each update: cache version
 `index.html` loads `css/style.css?v=20261104` and `js/*.js?v=20261104`. When you change a CSS or JS file, change that number (e.g. today's date) in the 4 places so visitors' browsers load the new version instead of an old copy.
+
+## Languages (EN / FR)
+- The site opens in **English** by default. The **EN / FR** button in the menu switches language; the visitor's choice is remembered.
+- To send a recruiter the French version directly: **https://lolopaul.netlify.app/?lang=fr**
+- **Page texts** (titles, About, Skills, buttons…): English is written in `index.html`; the French version is in `js/i18n.js`, under the same key as the element's `data-i18n="…"` attribute. Change both when you edit a text.
+- **Projects, dashboards, marketing ops, experience**: each item in `js/data.js` has a `fr: { … }` block with the French text fields. A field missing from `fr` is shown in English.
+- The SQL terminal in the hero stays in English (it's code).
 
 ## Editing content
 
@@ -105,7 +113,8 @@ Each dashboard is a block in `dashboards: [ … ]` in `js/data.js`.
   problem: "The business question the dashboard answers.",
   data: "Which data, what period, how it was prepared.",
   kpis: ["Churn rate", "Customer lifetime value"],
-  insights: ["Takeaway #1", "Recommendation #2"]
+  insights: ["Takeaway #1", "Recommendation #2"],
+  fr: { title: "…", problem: "…", data: "…", kpis: ["…"], insights: ["…"] }   // French version
 },
 ```
 4. Save, preview, redeploy.

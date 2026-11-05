@@ -274,5 +274,13 @@
       if (navigator.clipboard) navigator.clipboard.writeText(v).then(done, function () {}); else done();
     });
   });
+  /* back to top: always scroll to the very top, then focus the page start */
+  $$(".back-to-top").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+      if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
   $("#year").textContent = new Date().getFullYear();
 })();

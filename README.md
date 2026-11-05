@@ -128,6 +128,11 @@ Before publishing a screenshot of work done for an employer or client (Danone, K
 
 > The two built-in demos (Power BI commercial dashboard and Tableau marketing dashboard) are drawn in the browser by `js/charts.js` with **fictitious figures**, labelled as such on the card and in the case study. Once real screenshots exist, set `image` on those blocks (or replace them).
 
+## Security headers (netlify.toml)
+The site sends a strict Content-Security-Policy. If you ever:
+- **add an external script or iframe** (e.g. a new embed provider), add its domain to `script-src` or `frame-src`. Tableau Public, Power BI and Microsoft Fabric embeds are already allowed;
+- **change the small inline `<script>` in `<head>`** of `index.html`, its `sha256-…` hash in `script-src` must be recomputed, or the browser will block it.
+
 ## Changing colours / fonts
 At the top of `css/style.css`, the `:root` block holds every colour (`--blue`, `--cyan`, `--bg`…) and the three fonts (Space Grotesk, Inter, JetBrains Mono, loaded from Google Fonts in `index.html`).
 
